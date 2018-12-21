@@ -7,7 +7,14 @@ import org.bookity.enums.ServiceError;
  */
 public class ServiceException extends Exception {
 
+    private ServiceError serviceError;
+
     public ServiceException(ServiceError serviceError) {
         super(serviceError.toString());
+        this.serviceError = serviceError;
+    }
+
+    public ServiceError getServiceError() {
+        return serviceError;
     }
 }

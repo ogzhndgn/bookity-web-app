@@ -1,6 +1,7 @@
 package org.bookity.service.impl;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.validator.routines.EmailValidator;
 import org.bookity.dao.UserDao;
 import org.bookity.enums.ServiceError;
 import org.bookity.enums.UserStatus;
@@ -28,6 +29,10 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User registerUser(String mailAddress, String password, String passwordConfirmation) throws ServiceException {
+        mailAddress = StringUtils.trim(mailAddress);
+        if (!EmailValidator.getInstance().isValid(mailAddress)) {
+            throw new ServiceException(ServiceError.ERR_INVALID_EMAIL);
+        }
         if (this.isExistsUser(mailAddress)) {
             throw new ServiceException(ServiceError.ERR_USER_ALREADY_EXISTS);
         }

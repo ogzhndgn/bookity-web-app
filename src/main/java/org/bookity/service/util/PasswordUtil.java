@@ -2,6 +2,7 @@ package org.bookity.service.util;
 
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.validator.routines.EmailValidator;
 import org.springframework.stereotype.Component;
 
 import java.util.UUID;
@@ -46,12 +47,14 @@ public class PasswordUtil {
 
     public static void main(String[] args) {
         PasswordUtil passwordUtil = new PasswordUtil();
-        System.out.println(passwordUtil.isValidPasswordFormat("asdASD123!"));
-        System.out.println(passwordUtil.isValidPasswordFormat("asdASD123"));
-        System.out.println(passwordUtil.isValidPasswordFormat("aA123123"));
-        String passwordSalt = passwordUtil.generatePasswordSalt();
-        System.out.println(passwordSalt);
-        String passwordHash = passwordUtil.getPasswordHash("asdASD123!", passwordSalt);
-        System.out.println(passwordHash);
+        System.out.println(passwordUtil.isValidPasswordFormat("asdASD123 "));
+        System.out.println(EmailValidator.getInstance().isValid("dogan_oguzhan@hotmail.com"));
+//        System.out.println(passwordUtil.isValidPasswordFormat("asdASD123!"));
+//        System.out.println(passwordUtil.isValidPasswordFormat("asdASD123"));
+//        System.out.println(passwordUtil.isValidPasswordFormat("aA123123"));
+//        String passwordSalt = passwordUtil.generatePasswordSalt();
+//        System.out.println(passwordSalt);
+//        String passwordHash = passwordUtil.getPasswordHash("asdASD123!", passwordSalt);
+//        System.out.println(passwordHash);
     }
 }

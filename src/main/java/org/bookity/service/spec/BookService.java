@@ -9,4 +9,6 @@ import org.springframework.data.domain.Page;
  */
 public interface BookService {
     Page<Book> getBooksByPage(int page) throws ServiceException;
+
+    Page<Book> searchBooks(String keyword, int page) throws ServiceException;
 }
