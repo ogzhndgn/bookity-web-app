@@ -1,4 +1,4 @@
-# bookity-web-app
+# Bookity!
 
 Bookity! is a lightweight small online library. You can search the books and see information of them.
 
