@@ -42,6 +42,34 @@ java -jar bookity-web-app-0.1.0.war
 
 It starts and run Bookity on the port you provided in application.properties file.
 
+###Configuration
+
+Some fields in application.properties file are configurable. You can change the fields below for following purposes.
+
+For log files path and name you need to configure these fields:
+```
+logging.path
+logging.file 
+```
+
+For the records to show in the table per page you need the change this field:
+```
+bookity.book.pagesize
+```
+
+For email address which sends welcome mail change these fields:
+
+```
+spring.mail.host
+spring.mail.port
+spring.mail.username
+spring.mail.password
+spring.mail.protocol
+spring.mail.properties.mail.smtp.auth
+spring.mail.properties.mail.smtp.starttls.enable
+```
+
+
 ## Authors
 
 * **Oguzhan Dogan** - *Initial work* - [ogzhndgn](https://github.com/ogzhndgn) dogan_oguzhan@hotmail.com
