@@ -19,9 +19,9 @@ public class EmailSender {
     @Autowired
     private JavaMailSender mailSender;
 
+    //This method is async because not to interrupt flow
     @Async
     public void sendWelcomeMail(String mailAddress) {
-        //TODO implement
         logger.info("A welcome mail will be sent to: " + mailAddress);
         try {
             SimpleMailMessage simpleMailMessage = new SimpleMailMessage();
@@ -29,7 +29,7 @@ public class EmailSender {
             simpleMailMessage.setSubject("Welcome Bookity!");
             simpleMailMessage.setText("Welcome Bookity! Please enjoy more than 10.000+ books!");
             mailSender.send(simpleMailMessage);
-        } catch (MailException e) {
+        } catch (Exception e) {
             logger.error("Error while sending welcome mail to " + mailAddress, e);
         }
     }

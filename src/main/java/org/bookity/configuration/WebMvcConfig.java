@@ -27,6 +27,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         List<String> excludePathPatterns = bookityUtil.getExcludePathPatterns();
+        logger.info("This paths will be excluded.");
         for (String excludePathPattern : excludePathPatterns) {
             logger.info(excludePathPattern);
         }

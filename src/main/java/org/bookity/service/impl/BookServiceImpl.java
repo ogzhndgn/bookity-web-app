@@ -66,7 +66,7 @@ public class BookServiceImpl implements BookService {
             String searchedParameter = "%" + keyword + "%";
             return bookDao.getBooksByAuthorLikeOrTitleLikeOrCategoryLikeOrIsbnLike(searchedParameter, searchedParameter, searchedParameter, searchedParameter, pageRequest);
         } catch (Exception e) {
-            logger.error("Error@getBooksByPage ", e);
+            logger.error("Error@searchInBooks ", e);
             throw new ServiceException(ServiceError.ERR_GETTING_BOOKS_PAGE);
         }
     }
@@ -76,7 +76,7 @@ public class BookServiceImpl implements BookService {
             PageRequest pageRequest = PageRequest.of(page - 1, bookCountPerPage);
             return bookDao.findAll(pageRequest);
         } catch (Exception e) {
-            logger.error("Error@getBooksByPage ", e);
+            logger.error("Error@getBooks ", e);
             throw new ServiceException(ServiceError.ERR_GETTING_BOOKS_PAGE);
         }
     }

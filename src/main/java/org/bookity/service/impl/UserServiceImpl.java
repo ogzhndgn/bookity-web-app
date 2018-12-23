@@ -4,7 +4,6 @@ import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.validator.routines.EmailValidator;
 import org.bookity.dao.UserDao;
 import org.bookity.enums.ServiceError;
-import org.bookity.enums.UserStatus;
 import org.bookity.exception.ServiceException;
 import org.bookity.model.User;
 import org.bookity.service.spec.UserService;
@@ -64,13 +63,13 @@ public class UserServiceImpl implements UserService {
     }
 
     private User createUser(String mailaddress, String password) {
+        logger.info("User is creating for " + mailaddress);
         String passwordSalt = passwordUtil.generatePasswordSalt();
         String passwordHash = passwordUtil.getPasswordHash(password, passwordSalt);
         User user = new User();
         user.setMailAddress(mailaddress);
         user.setPasswordSalt(passwordSalt);
         user.setPasswordHash(passwordHash);
-        user.setStatus(UserStatus.ACTIVE.name());
         userDao.save(user);
         return user;
     }

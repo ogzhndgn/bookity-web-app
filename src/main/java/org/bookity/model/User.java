@@ -21,8 +21,6 @@ public class User {
     private String passwordHash;
     @Column(name = "passwordsalt")
     private String passwordSalt;
-    @Column(name = "status")
-    private String status;
 
     public int getId() {
         return id;
@@ -54,13 +52,5 @@ public class User {
 
     public void setPasswordSalt(String passwordSalt) {
         this.passwordSalt = passwordSalt;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
     }
 }
